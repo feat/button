@@ -45,3 +45,14 @@ function Example() {
 | type     | string |           | `default`, `primary`, `danger`, `link`, `merge`, 默认为： `default` |
 | size     | string |           | `sm`, `md`, `lg`, 默认值为：`sm`                                    |
 | hitSlop  | number |           | 扩大按钮响应区域, 默认为：`5`                                       |
+
+
+## 本地开发
+
+master 分支中包含有这个组件的最新版本的代码。
+
+可以通过一下步骤开始本地开发
+
+- `git clone https://github.com/feat/flat-datepicker`
+- `npm install`
+- `npm run stroybook`
