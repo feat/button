@@ -1,0 +1,271 @@
+@import 'variables.scss';
+
+@mixin wrapperBase {
+    position: relative;
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+}
+@mixin presentBase {
+    display: inline-block;
+    transition: .3s ease;
+    border-width: 1px;
+    border-style: solid;
+    box-sizing: border-box;
+
+    &:hover {
+        transform: scale(0.95);
+    }
+    &:active {
+        transform: scale(0.86);
+    }
+}
+@mixin overlayBase {
+    position: absolute;
+    background-color: transparent;
+    z-index: -1;
+}
+
+@mixin smSize {
+    height: $btn-sm-size;
+    padding-top: $btn-sm-padding-y;
+    padding-bottom: $btn-sm-padding-y;
+    line-height: $btn-sm-line-height;
+    font-size: $btn-sm-font-size;
+    border-radius: $btn-sm-border-radius;
+}
+
+@mixin mdSize {
+    height: $btn-md-size;
+    padding-top: $btn-md-padding-y;
+    padding-bottom: $btn-md-padding-y;
+    line-height: $btn-md-line-height;
+    font-size: $btn-md-font-size;
+    border-radius: $btn-md-border-radius;
+}
+
+@mixin lgSize {
+    height: $btn-lg-size;
+    padding-top: $btn-lg-padding-y;
+    padding-bottom: $btn-lg-padding-y;
+    line-height: $btn-lg-line-height;
+    font-size: $btn-lg-font-size;
+    border-radius: $btn-lg-border-radius;
+}
+
+@mixin defaultStyle {
+    background-color: $btn-style-default-bg-color;
+    border-color: $btn-style-default-bd-color;
+    color: $btn-style-default-text-color;
+}
+@mixin primaryStyle {
+    background-color: $btn-style-primary-bg-color;
+    border-color: $btn-style-primary-bd-color;
+    color: $btn-style-primary-text-color;
+}
+@mixin dangerStyle {
+    background-color: $btn-style-danger-bg-color;
+        border-color: $btn-style-danger-bd-color;
+        color: $btn-style-danger-text-color;
+}
+@mixin linkStyle {
+    
+}
+@mixin mergeStyle {
+    
+}
+
+.ft-Button {
+    @include wrapperBase();
+    &:disabled {
+        cursor: not-allowed;
+        opacity: .7;
+        .ft-Button__present {
+            transform: none;
+        }
+    }
+
+    &__present {
+        @include presentBase();
+    }
+
+    &__bg {
+       @include overlayBase();
+    }
+}
+
+.ft-Button_sm {
+    .ft-Button__present {
+        @include smSize();
+        padding-left: $btn-sm-padding-x;
+        padding-right: $btn-sm-padding-x;
+    }
+}
+
+.ft-Button_md {
+    .ft-Button__present {
+        @include mdSize();
+        padding-left: $btn-md-padding-x;
+        padding-right: $btn-md-padding-x;
+    }
+}
+
+.ft-Button_lg {
+    .ft-Button__present {
+        @include mdSize();
+        padding-left: $btn-lg-padding-x;
+        padding-right: $btn-lg-padding-x;
+    }
+}
+
+.ft-Button_primary {
+    .ft-Button__present {
+        @include primaryStyle();
+    }
+}
+
+.ft-Button_default {
+    .ft-Button__present {
+        @include defaultStyle();
+    }
+}
+
+.ft-Button_danger {
+    .ft-Button__present {
+        @include dangerStyle();
+    }
+}
+
+.ft-Button_link {
+    .ft-Button__present {
+        background-color: $btn-style-link-bg-color;
+        border-color: $btn-style-link-bd-color;
+        color: $btn-style-link-text-color;
+
+        &:hover {
+            background-color: transparentize($btn-style-link-text-color, 0.9);
+        }
+    }
+    &:disabled {
+        .ft-Button__present {
+            &:hover {
+                background-color: $btn-style-link-bg-color;
+            }
+        }
+    }
+}
+
+.ft-Button_merge {
+    .ft-Button__present {
+        background-color: $btn-style-merge-bg-color;
+        border-color: $btn-style-merge-bd-color;
+        color: $btn-style-merge-text-color;
+
+        &:hover {
+            background-color: transparentize($btn-style-merge-text-color, 0.9);
+        }
+    }
+    &:disabled {
+        .ft-Button__present {
+            &:hover {
+                background-color: $btn-style-merge-bg-color;
+            }
+        }
+    }
+}
+
+.ft-SquareButton {
+    @include wrapperBase();
+    &:disabled {
+        cursor: not-allowed;
+        opacity: .7;
+        .ft-SquareButton__present {
+            transform: none;
+        }
+    }
+
+    &__present {
+        @include presentBase();
+    }
+    &__bg {
+        @include overlayBase();
+     }
+}
+
+.ft-SquareButton_sm {
+    .ft-SquareButton__present {
+        @include smSize();
+        text-align: center;
+        width: $btn-sm-size;
+    }
+}
+.ft-SquareButton_md {
+    .ft-SquareButton__present {
+        @include mdSize();
+        text-align: center;
+        width: $btn-md-size;
+    }
+}
+.ft-SquareButton_lg {
+    .ft-SquareButton__present {
+        @include lgSize();
+        text-align: center;
+        width: $btn-lg-size;
+    }
+}
+
+.ft-SquareButton_default {
+    .ft-SquareButton__present {
+       @include defaultStyle();
+    }
+}
+.ft-SquareButton_primary {
+    .ft-SquareButton__present {
+       @include primaryStyle();
+    }
+}
+.ft-SquareButton_danger {
+    .ft-SquareButton__present {
+       @include dangerStyle();
+    }
+}
+.ft-SquareButton_link {
+    .ft-SquareButton__present {
+        background-color: $btn-style-link-bg-color;
+        border-color: $btn-style-link-bd-color;
+        color: $btn-style-link-text-color;
+
+        &:hover {
+            background-color: transparentize($btn-style-link-text-color, 0.9);
+        }
+    }
+    &:disabled {
+        .ft-SquareButton__present {
+            &:hover {
+                background-color: $btn-style-link-bg-color;
+            }
+        }
+    }
+}
+.ft-SquareButton_merge {
+    .ft-SquareButton__present {
+        background-color: $btn-style-merge-bg-color;
+        border-color: $btn-style-merge-bd-color;
+        color: $btn-style-merge-text-color;
+
+        &:hover {
+            background-color: transparentize($btn-style-merge-text-color, 0.9);
+        }
+    }
+    &:disabled {
+        .ft-SquareButton__present {
+            &:hover {
+                background-color: $btn-style-merge-bg-color;
+            }
+        }
+    }
+}
