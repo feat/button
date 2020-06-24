@@ -22,6 +22,9 @@ npm install @featui/button
 ```
 import { Button } from '@featui/button';
 
+// import '@featui/button/dist/feat-button.min.css'; // 样式引入
+// 也可以使用在原始的scss文件上进行定义
+
 function Example() {
   <Button size='sm' type='primary'>
     Primary
